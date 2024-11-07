@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Fire Access</title>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            font-family: 'Courier New', Courier, monospace;
+            text-align: center;
+            padding: 50px;
+        }
+
+        h1 {
+            color: red;
+            font-size: 40px;
+        }
+
+        p {
+            font-size: 20px;
+            margin-top: 20px;
+        }
+
+        .uid-box {
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            margin-top: 20px;
+            border: 2px solid red;
+            font-size: 18px;
+            width: 300px;
+            margin-left: auto;
+            margin-right: auto;
+            border-radius: 5px;
+        }
+
+        .uid-box input {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            background-color: #555;
+            color: white;
+            font-size: 18px;
+        }
+
+        .btn {
+            background-color: green;
+            color: white;
+            padding: 15px 30px;
+            font-size: 20px;
+            margin-top: 30px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: #444;
+        }
+
+        .access-success {
+            display: none;
+            color: green;
+            font-size: 24px;
+            margin-top: 30px;
+        }
+
+        .access-success.active {
+            display: block;
+        }
+
+        .free-fire-buttons {
+            margin-top: 40px;
+        }
+
+        .free-fire-buttons button {
+            padding: 15px 30px;
+            font-size: 20px;
+            color: white;
+            background-color: red;
+            border: none;
+            margin: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .free-fire-buttons button:hover {
+            background-color: #444;
+        }
+    </style>
+</head>
+<body>
+    <h1>Free Fire Account Access</h1>
+    <p style="color: green;">Please enter your 12-16 digit UID below</p>
+
+    <div class="uid-box">
+        <input type="text" id="uid" placeholder="Enter UID">
+    </div>
+
+    <button class="btn" onclick="accessGranted()">Access Now</button>
+
+    <div id="accessMessage" class="access-success">
+        <p>Access Successful</p>
+    </div>
+
+    <div class="free-fire-buttons" style="display: none;" id="playButtons">
+        <button onclick="window.location.href='https://play.google.com/store/apps/details?id=com.dts.freefireth'">Play with Free Fire</button>
+        <button onclick="window.location.href='https://play.google.com/store/apps/details?id=com.dts.freefiremax'">Play with Free Fire Max</button>
+    </div>
+
+    <script>
+        function accessGranted() {
+            // Get the value of the UID input field
+            var uid = document.getElementById('uid').value;
+
+            // Check if the UID is valid (12-16 digits)
+            if (uid.length >= 12 && uid.length <= 16 && /^\d+$/.test(uid)) {
+                // Show the access successful message
+                document.getElementById('accessMessage').classList.add('active');
+                // Show the play buttons
+                document.getElementById('playButtons').style.display = 'block';
+            } else {
+                // If the UID is not valid, show an alert
+                alert("Please enter a valid 12-16 digit UID.");
+            }
+        }
+    </script>
+</body>
+</html>
